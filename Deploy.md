@@ -32,7 +32,7 @@
 
 ## Deploy to local
 ```bash
-$ docker build -t tipg .
+$ docker build -t tipg-uvicorn:latest -f dockerfiles/Dockerfile.custom .
 $ docker run -d -p 8080:8080 --name tipg-uvicorn -e DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres tipg
 ```
 
@@ -42,7 +42,7 @@ You can also use `-e DATABASE_URL=postgressql://postgres:postgres@localhost:5432
 ## Deploy image to ECR
 ```bash
 $ aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 123456789012.dkr.ecr.ap-southeast-1.amazonaws.com
-$ docker build -t tipg .
+$ docker build -t tipg-uvicorn:latest -f dockerfiles/Dockerfile.custom .
 $ docker tag tipg:latest 123456789012.dkr.ecr.ap-southeast-1.amazonaws.com/tipg:latest
 $ docker push 123456789012.dkr.ecr.ap-southeast-1.amazonaws.com/tipg:latest
 ```
