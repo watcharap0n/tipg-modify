@@ -33,7 +33,7 @@
 ## Deploy to local
 ```bash
 $ docker build -t tipg-uvicorn:latest -f dockerfiles/Dockerfile.custom .
-$ docker run -d -p 8080:8080 --name tipg-uvicorn -e DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres tipg
+$ docker run -d -p 8080:8080 --name tipg-uvicorn -e DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres tipg-uvicorn:latest
 ```
 
 **p.s.** 
